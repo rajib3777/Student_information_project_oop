@@ -48,7 +48,7 @@ class Student:
     def drop_student(self):
         if self._is_enrolled :
             self._is_enrolled = False
-            return f"studen is------> {self.__student_id} is dropped sucessfully"
+            return f"student is------> {self.__student_id} is dropped sucessfully"
         else:
             return f"student------> {self.__student_id} is not found"
         
@@ -62,7 +62,7 @@ Student.Create_student_database(3022,'Adnan Ashraf','Library Menagement')
 Student.Create_student_database(990,'Ayesha Akhter','CSE')
 
 def main_menu():
-        
+        #option bar
     while True:
         print("\n_____STUDENT DATABASE MENU_______")
         print("1. View All students")
@@ -73,28 +73,29 @@ def main_menu():
 
         option = int(input("Choose (1 - 4) instead: "))
 
-
-        if option == 1:
-            studentDatabase.view_student()
-        elif option == 2:
-            unique_id = int(input("Enter Your UNique id : "))
-            student = studentDatabase.enroll_id(unique_id)
-            if student :
-                print(student.enroll_student())
-            else:
-                print("Student not found")
-        elif option == 3:
-            unique_id = int(input("Enter Your UNique id : "))
-            student = studentDatabase.enroll_id(unique_id)
-            if student :
-                print(student.drop_student())
-            else:
-                print("Student not found")
-        elif option == 4:
-            print("Need to get out from program")
-            break
-        else:
-            print("Your information does not valid")
+        #alternative of switch case in python
+        match option:
+            case 1:
+                studentDatabase.view_student()
+            case 2:
+                unique_id = int(input("Enter Your UNique id : "))
+                student = studentDatabase.enroll_id(unique_id)
+                if student :
+                    print(student.enroll_student())
+                else:
+                    print("Student not found")
+            case 3:
+                unique_id = int(input("Enter Your UNique id : "))
+                student = studentDatabase.enroll_id(unique_id)
+                if student :
+                    print(student.drop_student())
+                else:
+                    print("Student not found")
+            case 4:
+                print("Need to get out from program")
+                break
+            case _:
+                print("Your information does not valid")
 
 
 main_menu()
